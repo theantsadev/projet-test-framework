@@ -1,5 +1,6 @@
 package com.itu.gest_emp.controller;
 
+import servlet.ModelView;
 import servlet.annotations.Controller;
 import servlet.annotations.Url;
 
@@ -14,6 +15,13 @@ public class HelloController {
     @Url("/bye")
     public String bye() {
         return "Au revoir !";
+    }
+
+    @Url("/test")
+    public ModelView test() {
+        ModelView modelView = new ModelView();
+        modelView.setView("pages/hello.jsp");
+        return modelView;
     }
 
 }
