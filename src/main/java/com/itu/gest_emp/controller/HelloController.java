@@ -17,12 +17,9 @@ public class HelloController {
         return "Au revoir !";
     }
 
-    @Url("/test")
-    public ModelView test() {
-        ModelView modelView = new ModelView();
-        modelView.setView("pages/hello.jsp");
-        modelView.addAttribute("hello", "test");
-        return modelView;
+    @Url("/etudiant/{id}")
+    public int get(int id) {
+        return id;
     }
 
 }
