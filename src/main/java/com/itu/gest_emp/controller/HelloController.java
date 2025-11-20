@@ -16,4 +16,9 @@ public class HelloController {
         return "Au revoir !";
     }
 
+    @Url("/etudiant/{id}")
+    public int get(int id) {
+        return id;
+    }
+
 }
