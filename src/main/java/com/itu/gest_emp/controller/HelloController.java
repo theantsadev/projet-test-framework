@@ -22,7 +22,7 @@ public class HelloController {
     }
 
     @Url("/personne/{id}")
-    public String get(String var2, int id) {
+    public String get(String var2, Integer id) {
         return var2;
     }
 
