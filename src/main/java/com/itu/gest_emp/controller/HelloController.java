@@ -21,4 +21,9 @@ public class HelloController {
         return id;
     }
 
+    @Url("/personne/{id}")
+    public String get(String var2, int id) {
+        return var2;
+    }
+
 }
