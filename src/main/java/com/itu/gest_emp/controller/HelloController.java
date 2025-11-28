@@ -3,6 +3,8 @@ package com.itu.gest_emp.controller;
 import servlet.annotations.Controller;
 import servlet.annotations.RequestParam;
 import servlet.annotations.Url;
+import servlet.annotations.mapping.GetMapping;
+import servlet.annotations.mapping.PostMapping;
 
 @Controller
 public class HelloController {
@@ -22,8 +24,15 @@ public class HelloController {
         return id;
     }
 
-    @Url("/personne/{id}")
+    @Url("/personne")
+    @GetMapping
     public String get(String var2, Integer id) {
+        return var2;
+    }
+
+    @Url("/personne")
+    @PostMapping
+    public String post(String var2, Integer id) {
         return var2;
     }
 
