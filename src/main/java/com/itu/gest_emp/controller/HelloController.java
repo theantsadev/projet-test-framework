@@ -1,11 +1,13 @@
 package com.itu.gest_emp.controller;
 
+import java.util.Map;
+
 import servlet.ModelView;
 import servlet.annotations.Controller;
 import servlet.annotations.RequestParam;
 import servlet.annotations.mapping.GetMapping;
+import servlet.annotations.mapping.PostMapping;
 import servlet.annotations.mapping.RequestMapping;
-import servlet.enums.RequestMethod;
 
 @Controller
 public class HelloController {
@@ -37,9 +39,12 @@ public class HelloController {
         return var2;
     }
 
-    @RequestMapping(value = "/personne", method = RequestMethod.POST)
-    public String post(String var2, Integer id) {
-        return var2;
+    @PostMapping("/save")
+    public ModelView save(Map<String, Object> parameters) {
+        ModelView modelView = new ModelView();
+        modelView.setAttributes(parameters);
+        modelView.setView("pages/result.jsp");
+        return modelView;
     }
 
     @GetMapping("/test/{id}")
