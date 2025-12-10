@@ -1,33 +1,47 @@
 package com.itu.gest_emp.controller;
 
+import servlet.ModelView;
 import servlet.annotations.Controller;
 import servlet.annotations.RequestParam;
-import servlet.annotations.Url;
+import servlet.annotations.mapping.GetMapping;
+import servlet.annotations.mapping.PostMapping;
 
 @Controller
 public class HelloController {
 
-    @Url("/hello")
+    @GetMapping("/hello")
     public String hello() {
         return "Bonjour depuis le framework !";
     }
 
-    @Url("/bye")
+    @GetMapping("/form")
+    public ModelView getForm() {
+        ModelView modelView = new ModelView();
+        modelView.setView("pages/form.jsp");
+        return modelView;
+    }
+
+    @GetMapping("/bye")
     public String bye() {
         return "Au revoir !";
     }
 
-    @Url("/etudiant/{id}")
+    @GetMapping("/etudiant/{id}")
     public int get(int id) {
         return id;
     }
 
-    @Url("/personne/{id}")
+    @GetMapping("/personne")
     public String get(String var2, Integer id) {
         return var2;
     }
 
-    @Url("/test/{id}")
+    @PostMapping("/personne")
+    public String post(String var2, Integer id) {
+        return var2;
+    }
+
+    @GetMapping("/test/{id}")
     public String getVar2(@RequestParam(name = "var2") String var2, Integer id) {
         return var2;
     }
