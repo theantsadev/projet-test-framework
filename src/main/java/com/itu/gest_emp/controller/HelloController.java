@@ -1,5 +1,6 @@
 package com.itu.gest_emp.controller;
 
+import servlet.ModelView;
 import servlet.annotations.Controller;
 import servlet.annotations.RequestParam;
 import servlet.annotations.mapping.GetMapping;
@@ -11,6 +12,13 @@ public class HelloController {
     @GetMapping("/hello")
     public String hello() {
         return "Bonjour depuis le framework !";
+    }
+
+    @GetMapping("/form")
+    public ModelView getForm() {
+        ModelView modelView = new ModelView();
+        modelView.setView("pages/form.jsp");
+        return modelView;
     }
 
     @GetMapping("/bye")
