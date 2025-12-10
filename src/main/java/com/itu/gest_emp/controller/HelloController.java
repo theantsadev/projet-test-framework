@@ -4,7 +4,6 @@ import servlet.ModelView;
 import servlet.annotations.Controller;
 import servlet.annotations.RequestParam;
 import servlet.annotations.mapping.GetMapping;
-import servlet.annotations.mapping.PostMapping;
 import servlet.annotations.mapping.RequestMapping;
 import servlet.enums.RequestMethod;
 
