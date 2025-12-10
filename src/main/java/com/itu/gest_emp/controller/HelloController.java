@@ -2,6 +2,9 @@ package com.itu.gest_emp.controller;
 
 import java.util.Map;
 
+import com.itu.gest_emp.model.Departement;
+import com.itu.gest_emp.model.Employe;
+
 import servlet.ModelView;
 import servlet.annotations.Controller;
 import servlet.annotations.RequestParam;
@@ -21,6 +24,20 @@ public class HelloController {
     public ModelView getForm() {
         ModelView modelView = new ModelView();
         modelView.setView("pages/form.jsp");
+        return modelView;
+    }
+
+    @GetMapping("/emp-form")
+    public ModelView getEmpForm() {
+        ModelView modelView = new ModelView();
+        modelView.setView("pages/emp-form.jsp");
+        return modelView;
+    }
+
+    @GetMapping("/test-form")
+    public ModelView getTestForm() {
+        ModelView modelView = new ModelView();
+        modelView.setView("pages/test-form.jsp");
         return modelView;
     }
 
@@ -44,6 +61,25 @@ public class HelloController {
         ModelView modelView = new ModelView();
         modelView.setAttributes(parameters);
         modelView.setView("pages/result.jsp");
+        return modelView;
+    }
+
+    @PostMapping("/save-emp")
+    public ModelView save(Employe employe) {
+        ModelView modelView = new ModelView();
+        modelView.addAttribute("employe", employe);
+        modelView.setView("pages/emp-result.jsp");
+        return modelView;
+    }
+
+    @PostMapping("/submit-test")
+    public ModelView save(Employe[] employes, Departement d, int deptId) {
+        ModelView modelView = new ModelView();
+        modelView.addAttribute("employes", employes);
+        modelView.addAttribute("d", d);
+        modelView.addAttribute("deptId", deptId);
+
+        modelView.setView("pages/test-result.jsp");
         return modelView;
     }
 
