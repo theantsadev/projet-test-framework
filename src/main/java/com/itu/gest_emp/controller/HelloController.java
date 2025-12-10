@@ -5,6 +5,8 @@ import servlet.annotations.Controller;
 import servlet.annotations.RequestParam;
 import servlet.annotations.mapping.GetMapping;
 import servlet.annotations.mapping.PostMapping;
+import servlet.annotations.mapping.RequestMapping;
+import servlet.enums.RequestMethod;
 
 @Controller
 public class HelloController {
@@ -31,12 +33,12 @@ public class HelloController {
         return id;
     }
 
-    @GetMapping("/personne")
+    @RequestMapping("/personne")
     public String get(String var2, Integer id) {
         return var2;
     }
 
-    @PostMapping("/personne")
+    @RequestMapping(value = "/personne", method = RequestMethod.POST)
     public String post(String var2, Integer id) {
         return var2;
     }
